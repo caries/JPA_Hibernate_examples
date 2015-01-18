@@ -1,4 +1,4 @@
-package com.desktopjpa;
+package com.jpa_hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

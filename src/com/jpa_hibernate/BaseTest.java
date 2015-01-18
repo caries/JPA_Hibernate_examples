@@ -1,4 +1,4 @@
-package com.desktopjpa;
+package com.jpa_hibernate;
 
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;

@@ -1,4 +1,4 @@
-package com.desktopjpa;
+package com.jpa_hibernate;
 
 import org.hsqldb.Server;
 import org.hsqldb.persist.HsqlProperties;
@@ -8,7 +8,7 @@ import org.hsqldb.server.ServerConfiguration;
 import java.io.IOException;
 
 /**
- * Created by nickolay on 13/01/15.
+ * Wraps HSQL server operations.
  */
 final class HSQLServer {
     private static Server server;

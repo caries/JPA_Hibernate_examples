@@ -1,7 +1,7 @@
-package com.desktopjpa;
+package com.jpa_hibernate;
 
 /**
- * Created by nickolay on 13/01/15.
+ * Contains information about the connection to HSQL database.
  */
 final class HSQLConnectionInfo {
     public static final String DRIVER = "org.hsqldb.jdbc.JDBCDriver";

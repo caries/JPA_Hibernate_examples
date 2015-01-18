@@ -1,4 +1,4 @@
-package com.desktopjpa;
+package com.jpa_hibernate;
 
 import org.dbunit.Assertion;
 import org.dbunit.dataset.ITable;
@@ -6,12 +6,10 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 
 import javax.persistence.EntityTransaction;
 import java.io.FileInputStream;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Created by nickolay on 17/01/15.
+ * Unit test for Unit class.
  */
 public class UnitTest extends BaseTest {
     public UnitTest(String name) throws Exception {
@@ -38,10 +36,10 @@ public class UnitTest extends BaseTest {
             e.printStackTrace();
         }
 
-        List<Unit> units = entityManager.createQuery("Select u from Unit u").getResultList();
+        List units = entityManager.createQuery("Select u from Unit u").getResultList();
         assertEquals(units.size(), 2);
 
-        for (Unit dbUnit : units) {
+        for (Object dbUnit : units) {
             System.out.println(dbUnit);
         }
     }

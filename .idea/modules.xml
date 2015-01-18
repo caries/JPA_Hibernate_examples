@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DesktopJPA.iml" filepath="$PROJECT_DIR$/DesktopJPA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JPA_Hibernate_examples.iml" filepath="$PROJECT_DIR$/JPA_Hibernate_examples.iml" />
     </modules>
   </component>
 </project>

@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class MetadataTest extends BaseTest {
     @Test
-    public void testUnitPersisting() throws Exception {
+    public void testUnitCRUDOperations() throws Exception {
         final Unit unit = new Unit();
         unit.setName("Yoho");
 
@@ -30,9 +30,24 @@ public class MetadataTest extends BaseTest {
                 entityManager.persist(unit);
             }
         });
-
         List units = entityManager.createQuery("Select u from Unit u").getResultList();
         assertEquals(units.size(), 1);
+
+        Unit persistedUnit = entityManager.find(Unit.class, unit.getId());
+        assertEquals(persistedUnit, unit);
+
+        persistedUnit.setName("Paul");
+        persistedUnit = entityManager.find(Unit.class, unit.getId());
+        assertEquals(persistedUnit.getName(), "Paul");
+
+        runTransactionSession(new TransactionSession() {
+            @Override
+            public void run(EntityManager entityManager) {
+                entityManager.remove(unit);
+            }
+        });
+        units = entityManager.createQuery("Select u from Unit u").getResultList();
+        assertEquals(units.size(), 0);
     }
 
     @Test

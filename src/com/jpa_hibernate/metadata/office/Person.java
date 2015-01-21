@@ -1,23 +1,18 @@
-package com.jpa_hibernate;
+package com.jpa_hibernate.metadata.office;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
- * Created by nickolay on 12/01/15.
- * Table script 'create table Unit (id int IDENTITY, name varchar(256))'
+ * Contains information about the person.
  */
 @Entity
-public class Unit implements Serializable {
-    final static String CREATE_SCRIPT = "create table Unit (id int IDENTITY, name varchar(256))";
-    final static String DROP_SCRIPT = "drop table Unit";
-
+public class Person {
     private long id;
     private String name;
 
-    public Unit() {
+    public Person() {
     }
 
     @Id
@@ -39,8 +34,25 @@ public class Unit implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        return id == person.id && name.equals(person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + name.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "Unit{" +
+        return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

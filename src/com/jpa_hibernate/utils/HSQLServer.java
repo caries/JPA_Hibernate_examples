@@ -1,4 +1,4 @@
-package com.jpa_hibernate;
+package com.jpa_hibernate.utils;
 
 import org.hsqldb.Server;
 import org.hsqldb.persist.HsqlProperties;
@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Wraps HSQL server operations.
  */
-final class HSQLServer {
+public final class HSQLServer {
     private static Server server;
 
     public static void start() throws IOException, ServerAcl.AclFormatException {

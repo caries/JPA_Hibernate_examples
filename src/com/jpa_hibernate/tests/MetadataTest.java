@@ -23,6 +23,9 @@ public class MetadataTest extends BaseTest {
     public void testUnitCRUDOperations() throws Exception {
         final Unit unit = new Unit();
         unit.setName("Yoho");
+        unit.setComments(new ArrayList<String>());
+        unit.getComments().add("Hello world");
+        unit.getComments().add("Where is my beer?");
 
         runTransactionSession(new TransactionSession() {
             @Override
@@ -35,6 +38,7 @@ public class MetadataTest extends BaseTest {
 
         Unit persistedUnit = entityManager.find(Unit.class, unit.getId());
         assertEquals(persistedUnit, unit);
+        assertEquals(persistedUnit.getComments().size(), 2);
 
         persistedUnit.setName("Paul");
         persistedUnit = entityManager.find(Unit.class, unit.getId());

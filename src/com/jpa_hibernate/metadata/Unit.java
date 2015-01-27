@@ -1,9 +1,8 @@
 package com.jpa_hibernate.metadata;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Encapsulates a simple unit
@@ -12,6 +11,7 @@ import java.io.Serializable;
 public class Unit implements Serializable {
     private long id;
     private String name;
+    private List<String> comments;
 
     public Unit() {
     }
@@ -32,6 +32,15 @@ public class Unit implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @ElementCollection
+    public List<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<String> comments) {
+        this.comments = comments;
     }
 
     @Override

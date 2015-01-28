@@ -1,4 +1,4 @@
-package com.jpa_hibernate.utils;
+package com.hsql_utils;
 
 import org.hsqldb.Server;
 import org.hsqldb.persist.HsqlProperties;
@@ -13,16 +13,20 @@ import java.io.IOException;
 public final class HSQLServer {
     private static Server server;
 
-    public static void start() throws IOException, ServerAcl.AclFormatException {
-        HsqlProperties properties = getProperties();
-        ServerConfiguration.translateDefaultDatabaseProperty(properties);
+    public static void start() throws Exception {
+        try {
+            HsqlProperties properties = getProperties();
+            ServerConfiguration.translateDefaultDatabaseProperty(properties);
 
-        server = new Server();
-        server.setRestartOnShutdown(false);
-        server.setNoSystemExit(true);
-        server.setProperties(properties);
+            server = new Server();
+            server.setRestartOnShutdown(false);
+            server.setNoSystemExit(true);
+            server.setProperties(properties);
 
-        server.start();
+            server.start();
+        } catch (IOException | ServerAcl.AclFormatException e) {
+            throw new Exception("Cannot start HSQL server", e);
+        }
     }
 
     private static HsqlProperties getProperties() {

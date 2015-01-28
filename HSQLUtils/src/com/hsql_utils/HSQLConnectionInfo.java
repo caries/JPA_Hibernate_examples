@@ -1,4 +1,4 @@
-package com.jpa_hibernate.utils;
+package com.hsql_utils;
 
 /**
  * Contains information about the connection to HSQL database.

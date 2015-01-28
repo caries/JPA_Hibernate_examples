@@ -1,6 +1,6 @@
 package com.jpa_hibernate.tests;
 
-import com.jpa_hibernate.utils.HSQLServer;
+import com.hsql_utils.HSQLServer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 

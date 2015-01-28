@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="HSQLUtils:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/HSQLUtils_jar</output-path>
+    <root id="archive" name="HSQLUtils.jar">
+      <element id="module-output" name="HSQLUtils" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/hsqldb-2.3.2/hsqldb/lib/hsqldb.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

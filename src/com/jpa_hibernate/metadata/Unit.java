@@ -1,14 +1,13 @@
 package com.jpa_hibernate.metadata;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * Encapsulates a simple unit
  */
 @Entity
-public class Unit implements Serializable {
+public class Unit {
     private long id;
     private String name;
     private List<String> comments;
